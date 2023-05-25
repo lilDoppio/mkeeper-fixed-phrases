@@ -1,0 +1,6 @@
+{
+    "extends": ["@feature-sliced"],
+    "parserOptions": {
+        "ecmaVersion": 2020
+    }
+}
