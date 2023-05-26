@@ -25,9 +25,9 @@ module.exports = {
         publicPath: '',
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src', 'processes', 'popups', 'popup.html'),
-        }),
+        // new HtmlWebpackPlugin({
+        //     template: path.resolve(__dirname, 'src', 'processes', 'popups', 'popup.html'),
+        // }),
         new MiniCssExtractPlugin({
             filename: '[name].css',
         }),

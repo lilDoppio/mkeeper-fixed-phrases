@@ -1,25 +1,3 @@
-export function shouldShowStats(showFunc) {
-    if (document.querySelector('.ssl-panel-select-box--check')) {
-        showFunc();
-        
-        const keywordsToggle = document.querySelectorAll('.more__text');
-        keywordsToggle[0].addEventListener('click', () => {
-            onStatsToggle(showFunc)
-        });
-    } else {
-        setTimeout(() => shouldShowStats(showFunc), 1000);
-    }
-}
-
-function onStatsToggle(showFunc) {
-    const tabsList = document.querySelector('.ssl-panel-select-box--check');
-    if (!tabsList) {
-        return;
-    }
-    showFunc();
-}
-
-
 export function shouldShowPhrases(showFunc) {
     const tabsList = document.querySelector('.tabs-list');
     if (

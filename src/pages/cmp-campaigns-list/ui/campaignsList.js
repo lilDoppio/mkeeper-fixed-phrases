@@ -18,16 +18,6 @@ export const CamapignsListPage = () =>
     });
 
 async function pageScript(campaignSettings) {
-    // if (!chromeKeys.bot) {
-    //     if (campaignSettings.type == 'cmpsearch') {
-    //         KeywordsFilter({
-    //             type: campaignSettings.type,
-    //             campaignId: campaignSettings.campaignId,
-    //         });
-    //     }
-    //     return;
-    // }
-
     if (campaignSettings.type == 'cmpsearch') {
         KeywordsFilter({
             campaignId: campaignSettings.campaignId,
