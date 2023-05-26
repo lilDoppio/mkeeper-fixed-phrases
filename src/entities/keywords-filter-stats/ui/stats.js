@@ -3,9 +3,15 @@ export function KeywordsFilterStats({ containerClass, data }) {
 
     const keywordsContainer = document.querySelectorAll(containerClass);
     keywordsContainer.forEach((container) => {
-        for (let keyword of container.children) {
+        for (let child of container.children) {
+            let keyword = child.querySelector('.checkbox.flex.flex--align-items-center')
+    
+            // if (keywordsContainer.querySelector('.mk-phrase-stats')) return
+
+            if (!keyword) continue
+            
             for (let count = 0; count < data.stat.length; count++) {
-                if (keyword.innerText == data.stat[count].keyword) {
+                if (keyword.innerHTML.match(/(?<=<\/div>).*?(?=(<|\\))/m)[0].trim() == data.stat[count].keyword) {
                     keyword.style = 'display:flex;justify-content:space-between;';
 
                     const stats = document.createElement('span');

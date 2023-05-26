@@ -1,4 +1,26 @@
-export function shouldShow(type, showFunc) {
+export function shouldShowStats(showFunc) {
+    if (document.querySelector('.ssl-panel-select-box--check')) {
+        showFunc();
+        
+        const keywordsToggle = document.querySelectorAll('.more__text');
+        keywordsToggle[0].addEventListener('click', () => {
+            onStatsToggle(showFunc)
+        });
+    } else {
+        setTimeout(() => shouldShowStats(showFunc), 1000);
+    }
+}
+
+function onStatsToggle(showFunc) {
+    const tabsList = document.querySelector('.ssl-panel-select-box--check');
+    if (!tabsList) {
+        return;
+    }
+    showFunc();
+}
+
+
+export function shouldShowPhrases(showFunc) {
     const tabsList = document.querySelector('.tabs-list');
     if (
         document.querySelector('.ng-star-inserted') &&
@@ -11,7 +33,7 @@ export function shouldShow(type, showFunc) {
         onPhrasesToggle(showFunc);
         onPhrasesTabs(showFunc);
     } else {
-        setTimeout(() => shouldShow(type, showFunc), 1011);
+        setTimeout(() => shouldShowPhrases(showFunc), 1011);
     }
 }
 
@@ -21,7 +43,7 @@ function onPhrasesToggle(showFunc) {
         onPhrasesTabs(showFunc);
         const tabsList = document.querySelector('.tabs-list');
         if (!tabsList) {
-            return setTimeout(onPhrasesToggle, 1000);
+            return;
         }
         if (Array.from(tabsList.children).length != 1) {
             return;
@@ -32,11 +54,14 @@ function onPhrasesToggle(showFunc) {
 
 function onPhrasesTabs(showFunc) {
     const tabsHead = document.querySelector('.tabs-head.ex');
+    console.log('onPhrasesTabs')
+
     if (tabsHead) {
         Array.from(tabsHead.children)[1].addEventListener('click', () => {
+            console.log('onPhrasesTabs click')
             const tabsList = document.querySelector('.tabs-list');
             if (!tabsList) {
-                return setTimeout(onPhrasesTabs, 1000);
+                return;
             }
             if (Array.from(tabsList.children).length != 1) {
                 return;

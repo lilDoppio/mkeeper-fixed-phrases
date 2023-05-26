@@ -11,15 +11,17 @@ const getKeywordFilterStat = async (campaignId) => {
     return response.json();
 };
 
-export async function KeywordsFilter({ type, campaignId }) {
+export async function KeywordsFilter({ campaignId }) {
     const data = await getKeywordFilterStat(campaignId);
 
-    keywordsFilterPhrasesModel.shouldShow(type, () => {
+    keywordsFilterPhrasesModel.shouldShowStats(() => {
         KeywordsFilterStats({
             containerClass: '.ssl-panel-select-box--check',
             data: data,
         });
+    });
 
+    keywordsFilterPhrasesModel.shouldShowPhrases(() => {
         KeywordsFilterPhrases({
             containerClass: '.tabs-list',
             campaignId: campaignId,

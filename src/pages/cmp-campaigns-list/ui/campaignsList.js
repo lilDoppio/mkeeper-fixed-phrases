@@ -30,7 +30,6 @@ async function pageScript(campaignSettings) {
 
     if (campaignSettings.type == 'cmpsearch') {
         KeywordsFilter({
-            type: campaignSettings.type,
             campaignId: campaignSettings.campaignId,
         });
     }

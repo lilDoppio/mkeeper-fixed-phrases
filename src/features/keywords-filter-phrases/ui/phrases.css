@@ -1,0 +1,29 @@
+.mk-phrase-input-container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.phrase-input-popup-tools {
+    display: flex;
+    justify-content: space-between;
+}
+#phrase-input-popup {
+    width: 400px;
+    position: absolute;
+    top: -24px;
+    right: -22px;
+    border: 1px solid #d1cfd7;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 15px;
+}
+#phrase-input {
+    width: calc(100% - 10px);
+    border: 2px solid #d1cfd7;
+    border-radius: 4px;
+    padding: 5px;
+    resize: vertical;
+    margin-bottom: 15px;
+}
